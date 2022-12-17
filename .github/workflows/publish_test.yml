@@ -25,3 +25,4 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo ${{ secrets.DOCKER_HUB_USERNAME }}
       - run: echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - run: echo ${{github.repository}}
