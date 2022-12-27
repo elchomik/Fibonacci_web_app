@@ -39,19 +39,16 @@ jobs:
 #          username: ${{secrets.DOCKER_HUB_USERNAME}}
 #          password: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
 #
-#      #Zbudowanie i wypchniecie obrazu na Dockerhuba
-#      - name: Build and push
-#        id: docker_build
-#        uses: docker/build-push-action@v2
-#        with:
-#          cache-from: type=local,src=/tmp/.buildx-cache
-#          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-#          platforms: linux/arm64,linux/amd64
-#          context: ./
-#          file: ./Dockerfile
-#          push: true
-#          tags: |
-#            ${{secrets.DOCKER_HUB_USERNAME}}/fib:latest
+      #Zbudowanie i wypchniecie obrazu na ghcr.io
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./fibonacci_web/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{github.actor}}/fib:latest
 #
 #      #Przenies cache'a
 #      - name: Move cache
