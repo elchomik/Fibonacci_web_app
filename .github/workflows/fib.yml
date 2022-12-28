@@ -56,6 +56,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
+            ${{secrets.DOCKER_HUB_USERNAME}}/zadanie1:latest
             ghcr.io/${{github.actor}}/fib:latest
 #
 #      #Przenies cache'a
