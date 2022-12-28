@@ -58,9 +58,3 @@ jobs:
           tags: |
             ${{secrets.DOCKER_HUB_USERNAME}}/zadanie1:latest
             ghcr.io/${{github.actor}}/fib:latest
-#
-#      #Przenies cache'a
-#      - name: Move cache
-#        run: |
-#          rm -rf /tmp/.buildx-cache
-#          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
